@@ -3,6 +3,7 @@ import stations from './stations.json'
 import Autosuggest from 'react-autosuggest'
 import _ from 'lodash'
 import { DateRangePicker } from 'react-dates'
+import moment from 'moment'
 import 'react-dates/lib/css/_datepicker.css'
 import './App.css'
 
@@ -44,11 +45,13 @@ class App extends Component {
       destinationSuggestions: [],
       departure: '',
       destination: '',
-      date: '4',
-      id: ''
+      duration: '4',
+      id: '',
+      startDate: moment(),
+      endDate: moment().add(2, 'weeks')
     }
 
-    this.handleChangeDate = this.handleChangeDate.bind(this)
+    this.handleChangeDuration = this.handleChangeDuration.bind(this)
     this.onOriginChange = this.onOriginChange.bind(this)
     this.onDestinationChange = this.onDestinationChange.bind(this)
     this.onOriginSuggestionsFetchRequested = this.onOriginSuggestionsFetchRequested.bind(this)
@@ -59,8 +62,8 @@ class App extends Component {
     this.onDestinationSuggestionSelected = this.onDestinationSuggestionSelected.bind(this)
   }
 
-  handleChangeDate (event) {
-    this.setState({date: event.target.value})
+  handleChangeDuration (event) {
+    this.setState({duration: event.target.value})
   }
 
   onOriginChange (event, { newValue }) {
@@ -153,8 +156,8 @@ class App extends Component {
         </div>
         <div>
           <select
-            onChange={this.handleChangeDate}
-            defaultValue={this.state.date}
+            onChange={this.handleChangeDuration}
+            defaultValue={this.state.duration}
           >
             <option value='1'>1 Tag</option>
             <option value='2'>2 Tage</option>
