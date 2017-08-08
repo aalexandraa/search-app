@@ -50,7 +50,7 @@ class App extends Component {
     super(props)
     this.state = {
       value: '',
-      suggestions: [],
+      originSuggestions: [],
       departure: '',
       destination: '',
       date: '4',
@@ -86,14 +86,14 @@ class App extends Component {
   // You already implemented this logic above, so just use it.
   onSuggestionsFetchRequested ({ value }) {
     this.setState({
-      suggestions: getSuggestions(value)
+      originSuggestions: getSuggestions(value)
     })
   };
 
   // Autosuggest will call this function every time you need to clear suggestions.
   onSuggestionsClearRequested () {
     this.setState({
-      suggestions: []
+      originSuggestions: []
     })
   };
 
@@ -104,11 +104,11 @@ class App extends Component {
   }
 
   render () {
-    const { value, suggestions } = this.state
+    const { value, originSuggestions } = this.state
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
-      placeholder: 'Type a programming language',
+      placeholder: 'To',
       value,
       onChange: this.onChange
     }
@@ -124,7 +124,7 @@ class App extends Component {
             value={this.state.departure}
           /> */}
           <Autosuggest
-            suggestions={suggestions}
+            suggestions={originSuggestions}
             onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
             onSuggestionsClearRequested={this.onSuggestionsClearRequested}
             getSuggestionValue={getSuggestionValue}
