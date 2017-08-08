@@ -60,7 +60,7 @@ class App extends Component {
     this.handleChangeDeparture = this.handleChangeDeparture.bind(this)
     this.handleChangeDestination = this.handleChangeDestination.bind(this)
     this.handleChangeDate = this.handleChangeDate.bind(this)
-    this.onChange = this.onChange.bind(this)
+    this.onOriginChange = this.onOriginChange.bind(this)
     this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this)
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this)
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this)
@@ -78,7 +78,7 @@ class App extends Component {
     this.setState({date: event.target.value})
   }
 
-  onChange (event, { newValue }) {
+  onOriginChange (event, { newValue }) {
     this.setState({originValue: newValue})
   }
 
@@ -110,7 +110,7 @@ class App extends Component {
     const inputProps = {
       placeholder: 'To',
       value: originValue,
-      onChange: this.onChange
+      onChange: this.onOriginChange
     }
     return (
       <div className='App'>
