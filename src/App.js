@@ -62,7 +62,7 @@ class App extends Component {
     this.handleChangeDate = this.handleChangeDate.bind(this)
     this.onOriginChange = this.onOriginChange.bind(this)
     this.onOriginSuggestionsFetchRequested = this.onOriginSuggestionsFetchRequested.bind(this)
-    this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this)
+    this.onOriginSuggestionsClearRequested = this.onOriginSuggestionsClearRequested.bind(this)
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this)
   }
 
@@ -91,7 +91,7 @@ class App extends Component {
   };
 
   // Autosuggest will call this function every time you need to clear suggestions.
-  onSuggestionsClearRequested () {
+  onOriginSuggestionsClearRequested () {
     this.setState({
       originSuggestions: []
     })
@@ -121,7 +121,7 @@ class App extends Component {
           <Autosuggest
             suggestions={originSuggestions}
             onSuggestionsFetchRequested ={this.onOriginSuggestionsFetchRequested}
-            onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+            onSuggestionsClearRequested={this.onOriginSuggestionsClearRequested}
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
