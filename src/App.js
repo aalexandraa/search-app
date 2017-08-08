@@ -63,7 +63,7 @@ class App extends Component {
     this.onOriginChange = this.onOriginChange.bind(this)
     this.onOriginSuggestionsFetchRequested = this.onOriginSuggestionsFetchRequested.bind(this)
     this.onOriginSuggestionsClearRequested = this.onOriginSuggestionsClearRequested.bind(this)
-    this.onSuggestionSelected = this.onSuggestionSelected.bind(this)
+    this.onOriginSuggestionSelected = this.onOriginSuggestionSelected.bind(this)
   }
 
   // handleChangeDeparture (event) {
@@ -97,7 +97,7 @@ class App extends Component {
     })
   };
 
-  onSuggestionSelected (event, { suggestion }) {
+  onOriginSuggestionSelected (event, { suggestion }) {
     this.setState({
       departure: suggestion.id
     })
@@ -125,7 +125,7 @@ class App extends Component {
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
-            onSuggestionSelected={this.onSuggestionSelected}
+            onSuggestionSelected={this.onOriginSuggestionSelected}
           />
           <br />
           <input
