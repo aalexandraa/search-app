@@ -49,7 +49,7 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      value: '',
+      originValue: '',
       originSuggestions: [],
       departure: '',
       destination: '',
@@ -79,12 +79,12 @@ class App extends Component {
   }
 
   onChange (event, { newValue }) {
-    this.setState({value: newValue})
+    this.setState({originValue: newValue})
   }
 
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
-  onSuggestionsFetchRequested ({ value }) {
+  onSuggestionsFetchRequested ({ value }) { // TODO: Change this too?
     this.setState({
       originSuggestions: getSuggestions(value)
     })
@@ -104,12 +104,12 @@ class App extends Component {
   }
 
   render () {
-    const { value, originSuggestions } = this.state
+    const { originValue, originSuggestions } = this.state
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
       placeholder: 'To',
-      value,
+      value: originValue,
       onChange: this.onChange
     }
     return (
@@ -118,11 +118,6 @@ class App extends Component {
           <h1>Cheapest Train Finder App</h1>
         </div>
         <div className='App-intro'>
-          {/* <input
-            placeholder='From'
-            onChange={this.handleChangeDeparture}
-            value={this.state.departure}
-          /> */}
           <Autosuggest
             suggestions={originSuggestions}
             onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
