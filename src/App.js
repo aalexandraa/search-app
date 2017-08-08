@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import stations from './stations.json'
 import Autosuggest from 'react-autosuggest'
 import _ from 'lodash'
-
+import { DateRangePicker } from 'react-dates'
+import 'react-dates/lib/css/_datepicker.css'
 import './App.css'
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
@@ -168,6 +169,15 @@ class App extends Component {
           <button onClick={() => console.log(this.state)}>
             Search
           </button>
+        </div>
+        <div>
+          <DateRangePicker
+            startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+            endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+            focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+            onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+          />
         </div>
       </div>
     )
