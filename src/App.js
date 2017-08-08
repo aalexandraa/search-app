@@ -57,18 +57,18 @@ class App extends Component {
       id: ''
     }
 
-    this.handleChangeDeparture = this.handleChangeDeparture.bind(this)
+    // this.handleChangeDeparture = this.handleChangeDeparture.bind(this)
     this.handleChangeDestination = this.handleChangeDestination.bind(this)
     this.handleChangeDate = this.handleChangeDate.bind(this)
     this.onOriginChange = this.onOriginChange.bind(this)
-    this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this)
+    this.onOriginSuggestionsFetchRequested = this.onOriginSuggestionsFetchRequested.bind(this)
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this)
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this)
   }
 
-  handleChangeDeparture (event) {
-    this.setState({departure: event.target.value})
-  }
+  // handleChangeDeparture (event) {
+  //   this.setState({departure: event.target.value})
+  // }
 
   handleChangeDestination (event) {
     this.setState({destination: event.target.value})
@@ -84,7 +84,7 @@ class App extends Component {
 
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
-  onSuggestionsFetchRequested ({ value }) { // TODO: Change this too?
+  onOriginSuggestionsFetchRequested ({ value }) { // TODO: Change this too?
     this.setState({
       originSuggestions: getSuggestions(value)
     })
@@ -120,7 +120,7 @@ class App extends Component {
         <div className='App-intro'>
           <Autosuggest
             suggestions={originSuggestions}
-            onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+            onSuggestionsFetchRequested ={this.onOriginSuggestionsFetchRequested}
             onSuggestionsClearRequested={this.onSuggestionsClearRequested}
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
