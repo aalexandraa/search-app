@@ -5,18 +5,6 @@ import _ from 'lodash'
 
 import './App.css'
 
-// // Imagine you have a list of languages that you'd like to autosuggest.
-// const languages = [
-//   {
-//     name: 'C',
-//     year: 1972
-//   },
-//   {
-//     name: 'Elm',
-//     year: 2012
-//   }
-// ]
-
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = value => {
   const inputValue = value.trim().toLowerCase()
@@ -51,27 +39,23 @@ class App extends Component {
     this.state = {
       originValue: '',
       originSuggestions: [],
+      destinationValue: '',
+      destinationSuggestions: [],
       departure: '',
       destination: '',
       date: '4',
       id: ''
     }
 
-    // this.handleChangeDeparture = this.handleChangeDeparture.bind(this)
-    this.handleChangeDestination = this.handleChangeDestination.bind(this)
     this.handleChangeDate = this.handleChangeDate.bind(this)
     this.onOriginChange = this.onOriginChange.bind(this)
+    this.onDestinationChange = this.onDestinationChange.bind(this)
     this.onOriginSuggestionsFetchRequested = this.onOriginSuggestionsFetchRequested.bind(this)
+    this.onDestinationSuggestionsFetchRequested = this.onDestinationSuggestionsFetchRequested.bind(this)
     this.onOriginSuggestionsClearRequested = this.onOriginSuggestionsClearRequested.bind(this)
+    this.onDestinationSuggestionsClearRequested = this.onDestinationSuggestionsClearRequested.bind(this)
     this.onOriginSuggestionSelected = this.onOriginSuggestionSelected.bind(this)
-  }
-
-  // handleChangeDeparture (event) {
-  //   this.setState({departure: event.target.value})
-  // }
-
-  handleChangeDestination (event) {
-    this.setState({destination: event.target.value})
+    this.onDestinationSuggestionSelected = this.onDestinationSuggestionSelected.bind(this)
   }
 
   handleChangeDate (event) {
@@ -82,11 +66,21 @@ class App extends Component {
     this.setState({originValue: newValue})
   }
 
+  onDestinationChange (event, { newValue }) {
+    this.setState({destinationValue: newValue})
+  }
+
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
-  onOriginSuggestionsFetchRequested ({ value }) { // TODO: Change this too?
+  onOriginSuggestionsFetchRequested ({ value }) {
     this.setState({
       originSuggestions: getSuggestions(value)
+    })
+  };
+
+  onDestinationSuggestionsFetchRequested ({ value }) {
+    this.setState({
+      destinationSuggestions: getSuggestions(value)
     })
   };
 
@@ -97,20 +91,38 @@ class App extends Component {
     })
   };
 
+  onDestinationSuggestionsClearRequested () {
+    this.setState({
+      destinationSuggestions: []
+    })
+  };
+
   onOriginSuggestionSelected (event, { suggestion }) {
     this.setState({
       departure: suggestion.id
     })
   }
 
+  onDestinationSuggestionSelected (event, { suggestion }) {
+    this.setState({
+      destination: suggestion.id
+    })
+  }
+
   render () {
     const { originValue, originSuggestions } = this.state
+    const { destinationValue, destinationSuggestions } = this.state
 
     // Autosuggest will pass through all these props to the input.
-    const inputProps = {
-      placeholder: 'To',
+    const originInputProps = {
+      placeholder: 'From',
       value: originValue,
       onChange: this.onOriginChange
+    }
+    const destinationInputProps = {
+      placeholder: 'To',
+      value: destinationValue,
+      onChange: this.onDestinationChange
     }
     return (
       <div className='App'>
@@ -120,18 +132,22 @@ class App extends Component {
         <div className='App-intro'>
           <Autosuggest
             suggestions={originSuggestions}
-            onSuggestionsFetchRequested ={this.onOriginSuggestionsFetchRequested}
+            onSuggestionsFetchRequested={this.onOriginSuggestionsFetchRequested}
             onSuggestionsClearRequested={this.onOriginSuggestionsClearRequested}
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
-            inputProps={inputProps}
+            inputProps={originInputProps}
             onSuggestionSelected={this.onOriginSuggestionSelected}
           />
           <br />
-          <input
-            placeholder='To'
-            onChange={this.handleChangeDestination}
-            value={this.state.destination}
+          <Autosuggest
+            suggestions={destinationSuggestions}
+            onSuggestionsFetchRequested={this.onDestinationSuggestionsFetchRequested}
+            onSuggestionsClearRequested={this.onDestinationSuggestionsClearRequested}
+            getSuggestionValue={getSuggestionValue}
+            renderSuggestion={renderSuggestion}
+            inputProps={destinationInputProps}
+            onSuggestionSelected={this.onDestinationSuggestionSelected}
           />
         </div>
         <div>
