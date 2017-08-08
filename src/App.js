@@ -116,6 +116,13 @@ class App extends Component {
   render () {
     const { originValue, originSuggestions } = this.state
     const { destinationValue, destinationSuggestions } = this.state
+    const neededOutputProps = {
+      duration: this.state.duration,
+      departure: this.state.departure,
+      destination: this.state.destination,
+      startDate: this.state.startDate,
+      endDate: this.state.endDate
+    }
 
     // Autosuggest will pass through all these props to the input.
     const originInputProps = {
@@ -169,11 +176,6 @@ class App extends Component {
           </select>
         </div>
         <div>
-          <button onClick={() => console.log(this.state)}>
-            Search
-          </button>
-        </div>
-        <div>
           <DateRangePicker
             startDate={this.state.startDate} // momentPropTypes.momentObj or null,
             endDate={this.state.endDate} // momentPropTypes.momentObj or null,
@@ -182,6 +184,12 @@ class App extends Component {
             onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
           />
         </div>
+        <div>
+          <button onClick={() => console.log(neededOutputProps)}>
+            Search
+          </button>
+        </div>
+
       </div>
     )
   }
