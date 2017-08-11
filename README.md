@@ -1,4 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+# search-app
+This is the Frontend for the trvl app. Find the best possible train journey within a given time frame for the best price.
+
+[Try it here](https://xyz.herokuapp.com)
+
+## Installation
+I dont know haha
+
+## Ideas
+	parameters like class, BahnCard, preferred times in a saved profile
+	input should be plaintext or markdown, something humanly editable, maybe some smart code embedded into plaintext
+	the input should live in dropbox, icloud or somethign that can be shared and edited easily
+	there should be a text message notification if a certain condition is met (price < 50 for hamburg weekend within next 30 days)
+	add memoization
+	add limited concurrency
+	search for both first and second class trains, show best trip per class
+
+Contributors
+This project is built by aalexandraa & ehd.
+
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
@@ -1760,7 +1780,7 @@ If you’re using [Apache HTTP Server](https://httpd.apache.org/), you need to c
     RewriteRule ^ index.html [QSA,L]
 ```
 
-It will get copied to the `build` folder when you run `npm run build`. 
+It will get copied to the `build` folder when you run `npm run build`.
 
 If you’re using [Apache Tomcat](http://tomcat.apache.org/), you need to follow [this Stack Overflow answer](https://stackoverflow.com/a/41249464/4878474).
 
@@ -2135,4 +2155,4 @@ This will only work for locales that have been explicitly imported before.
 
 ## Something Missing?
 
-If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
+If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md) -->
