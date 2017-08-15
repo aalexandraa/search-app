@@ -161,54 +161,56 @@ class App extends Component {
         <div className='App-header'>
           <Title>Cheapest Train Finder App</Title>
         </div>
-        <div className='App-intro'>
-          <Autosuggest
-            suggestions={originSuggestions}
-            onSuggestionsFetchRequested={this.onOriginSuggestionsFetchRequested}
-            onSuggestionsClearRequested={this.onOriginSuggestionsClearRequested}
-            getSuggestionValue={getSuggestionValue}
-            renderSuggestion={renderSuggestion}
-            inputProps={originInputProps}
-            onSuggestionSelected={this.onOriginSuggestionSelected}
-          />
-          <br />
-          <Autosuggest
-            suggestions={destinationSuggestions}
-            onSuggestionsFetchRequested={this.onDestinationSuggestionsFetchRequested}
-            onSuggestionsClearRequested={this.onDestinationSuggestionsClearRequested}
-            getSuggestionValue={getSuggestionValue}
-            renderSuggestion={renderSuggestion}
-            inputProps={destinationInputProps}
-            onSuggestionSelected={this.onDestinationSuggestionSelected}
-          />
-        </div>
-        <div>
-          <select
-            onChange={this.handleChangeDuration}
-            defaultValue={this.state.duration}
-          >
-            <option value='1'>1 Tag</option>
-            <option value='2'>2 Tage</option>
-            <option value='3'>3 Tage</option>
-            <option value='4'>4 Tage</option>
-            <option value='5'>5 Tage</option>
-            <option value='6'>6 Tage</option>
-            <option value='7'>7 Tage</option>
-          </select>
-        </div>
-        <div>
-          <DateRangePicker
-            startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-            endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-            focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-            onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-          />
-        </div>
-        <div>
-          <Button primary onClick={() => console.log(neededOutputProps)}>
-            Search
-          </Button>
+        <div className='Search'>
+          <div className='Stations'>
+            <Autosuggest
+              suggestions={originSuggestions}
+              onSuggestionsFetchRequested={this.onOriginSuggestionsFetchRequested}
+              onSuggestionsClearRequested={this.onOriginSuggestionsClearRequested}
+              getSuggestionValue={getSuggestionValue}
+              renderSuggestion={renderSuggestion}
+              inputProps={originInputProps}
+              onSuggestionSelected={this.onOriginSuggestionSelected}
+            />
+            <br />
+            <Autosuggest
+              suggestions={destinationSuggestions}
+              onSuggestionsFetchRequested={this.onDestinationSuggestionsFetchRequested}
+              onSuggestionsClearRequested={this.onDestinationSuggestionsClearRequested}
+              getSuggestionValue={getSuggestionValue}
+              renderSuggestion={renderSuggestion}
+              inputProps={destinationInputProps}
+              onSuggestionSelected={this.onDestinationSuggestionSelected}
+            />
+          </div>
+          <div className='Duration-picker'>
+            <select
+              onChange={this.handleChangeDuration}
+              defaultValue={this.state.duration}
+            >
+              <option value='1'>1 Tag</option>
+              <option value='2'>2 Tage</option>
+              <option value='3'>3 Tage</option>
+              <option value='4'>4 Tage</option>
+              <option value='5'>5 Tage</option>
+              <option value='6'>6 Tage</option>
+              <option value='7'>7 Tage</option>
+            </select>
+          </div>
+          <div className='Date-range-picker'>
+            <DateRangePicker
+              startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+              endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+              focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+              onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+            />
+          </div>
+          <div className='Search-button'>
+            <Button primary onClick={() => console.log(neededOutputProps)}>
+              Search
+            </Button>
+          </div>
         </div>
 
       </div>
