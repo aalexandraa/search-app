@@ -8,6 +8,19 @@ import moment from 'moment'
 import 'react-dates/lib/css/_datepicker.css'
 import './App.css'
 
+//Styles
+const Button = styled.button`
+	/* Adapt the colours based on primary prop */
+	background: ${props => props.primary ? 'palevioletred' : 'white'};
+	color: ${props => props.primary ? 'white' : 'palevioletred'};
+
+	font-size: 1em;
+	margin: 1em;
+	padding: 0.25em 1em;
+	border: 2px solid palevioletred;
+	border-radius: 3px;
+`;
+
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = value => {
   const inputValue = value.trim().toLowerCase()
@@ -186,9 +199,9 @@ class App extends Component {
           />
         </div>
         <div>
-          <button onClick={() => console.log(neededOutputProps)}>
+          <Button onClick={() => console.log(neededOutputProps)}>
             Search
-          </button>
+          </Button>
         </div>
 
       </div>
