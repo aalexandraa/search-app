@@ -8,18 +8,25 @@ import moment from 'moment'
 import 'react-dates/lib/css/_datepicker.css'
 import './App.css'
 
-//Styles
-const Button = styled.button`
-	/* Adapt the colours based on primary prop */
-	background: ${props => props.primary ? 'palevioletred' : 'white'};
-	color: ${props => props.primary ? 'white' : 'palevioletred'};
+// Styles
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: left;
+  margin: 1em;
+  color: palevioletred;
+`
 
-	font-size: 1em;
-	margin: 1em;
-	padding: 0.25em 1em;
-	border: 2px solid palevioletred;
-	border-radius: 3px;
-`;
+const Button = styled.button`
+/* Adapt the colours based on primary prop */
+  background: ${props => props.primary ? 'palevioletred' : 'white'};
+  color: ${props => props.primary ? 'white' : 'palevioletred'};
+
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = value => {
@@ -152,7 +159,7 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='App-header'>
-          <h1>Cheapest Train Finder App</h1>
+          <Title>Cheapest Train Finder App</Title>
         </div>
         <div className='App-intro'>
           <Autosuggest
@@ -199,7 +206,7 @@ class App extends Component {
           />
         </div>
         <div>
-          <Button onClick={() => console.log(neededOutputProps)}>
+          <Button primary onClick={() => console.log(neededOutputProps)}>
             Search
           </Button>
         </div>
