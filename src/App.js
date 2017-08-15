@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import stations from './stations.json'
 import Autosuggest from 'react-autosuggest'
 import _ from 'lodash'
