@@ -16,6 +16,28 @@ const Title = styled.h1`
   color: palevioletred;
 `
 
+const Select = styled.select`
+  background-color: white;
+  font-size: 1em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(166, 166, 166);
+  border-image: initial;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`
+
+const Option = styled.option`
+  font-weight: normal;
+  display: block;
+  white-space: pre;
+  min-height: 1.2em;
+  padding: 0px 2px 1px;
+  background-color: white;
+`
+
 const Button = styled.button`
 /* Adapt the colours based on primary prop */
   background: ${props => props.primary ? 'palevioletred' : 'white'};
@@ -184,18 +206,18 @@ class App extends Component {
             />
           </div>
           <div className='Duration-picker'>
-            <select
+            <Select
               onChange={this.handleChangeDuration}
               defaultValue={this.state.duration}
             >
-              <option value='1'>1 Tag</option>
-              <option value='2'>2 Tage</option>
-              <option value='3'>3 Tage</option>
-              <option value='4'>4 Tage</option>
-              <option value='5'>5 Tage</option>
-              <option value='6'>6 Tage</option>
-              <option value='7'>7 Tage</option>
-            </select>
+              <Option value='1'>1 Tag</Option>
+              <Option value='2'>2 Tage</Option>
+              <Option value='3'>3 Tage</Option>
+              <Option value='4'>4 Tage</Option>
+              <Option value='5'>5 Tage</Option>
+              <Option value='6'>6 Tage</Option>
+              <Option value='7'>7 Tage</Option>
+            </Select>
           </div>
           <div className='Date-range-picker'>
             <DateRangePicker
