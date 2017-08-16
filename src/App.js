@@ -6,7 +6,6 @@ import _ from 'lodash'
 import { DateRangePicker } from 'react-dates'
 import moment from 'moment'
 import 'react-dates/lib/css/_datepicker.css'
-import './App.css'
 import Results from './Results'
 
 // Styles
