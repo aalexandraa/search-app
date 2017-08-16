@@ -12,7 +12,6 @@ import DatePickerStyles from './DatePickerStyles'
 const Title = styled.h1`
   font-size: 1.5em;
   text-align: left;
-  margin: 1em;
   color: palevioletred;
 `
 
@@ -22,7 +21,7 @@ const StationSearch = styled.div`
   }
 
   .react-autosuggest__input {
-    width: 240px;
+    width: 258px;
     height: 30px;
     padding: 10px 20px 10px 40px;
     font-family: Helvetica, sans-serif;
@@ -49,7 +48,7 @@ const StationSearch = styled.div`
     display: block;
     position: absolute;
     top: 51px;
-    width: 300px;
+    width: 318px;
     border: 1px solid #aaa;
     background-color: #fff;
     font-family: Helvetica, sans-serif;
@@ -83,7 +82,7 @@ const Select = styled.select`
   border-style: solid;
   border-color: rgb(166, 166, 166);
   border-image: initial;
-  margin: 1em;
+  margin: 1em 0;
   padding: 0.25em 1em;
   border: 2px solid palevioletred;
   border-radius: 3px;
@@ -104,7 +103,7 @@ const Button = styled.button`
   color: ${props => props.primary ? 'white' : 'palevioletred'};
 
   font-size: 1em;
-  margin: 1em;
+  margin: 1em 0;
   padding: 0.25em 1em;
   border: 2px solid palevioletred;
   border-radius: 3px;
