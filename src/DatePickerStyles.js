@@ -169,7 +169,7 @@ const DatePickerStyles = styled.div`
 .DayPicker--horizontal {
   background: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.07);
-  border-radius: 3px; }
+  border-radius: 4px; }
   .DayPicker--horizontal.DayPicker--portal {
     box-shadow: none;
     position: absolute;
@@ -232,7 +232,7 @@ const DatePickerStyles = styled.div`
 .transition-container {
   position: relative;
   overflow: hidden;
-  border-radius: 3px; }
+  border-radius: 4px; }
 
 .transition-container--horizontal {
   transition: height 0.2s ease-in-out; }
@@ -269,7 +269,7 @@ const DatePickerStyles = styled.div`
   position: relative; }
   .DayPickerNavigation--horizontal .DayPickerNavigation__prev,
   .DayPickerNavigation--horizontal .DayPickerNavigation__next {
-    border-radius: 3px;
+    border-radius: 4px;
     padding: 6px 9px;
     top: 18px;
     z-index: 2;
@@ -383,7 +383,7 @@ const DatePickerStyles = styled.div`
   overflow: auto;
   background: #fff;
   border: 1px solid #dbdbdb;
-  border-radius: 2px;
+  border-radius: 4px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -459,7 +459,8 @@ const DatePickerStyles = styled.div`
   position: relative;
   display: inline-block;
   width: 130px;
-  vertical-align: middle; }
+  vertical-align: middle;
+  border-radius: 4px; }
 
 .DateInput--with-caret::before,
 .DateInput--with-caret::after {
@@ -508,7 +509,7 @@ const DatePickerStyles = styled.div`
 .DateInput__display-text--focused {
   background: #f1cbd7;
   border-color: #f1cbd7;
-  border-radius: 3px;
+  border-radius: 4px;
   color: #8b475d; }
 
 .DateInput__display-text--disabled {
@@ -526,7 +527,9 @@ const DatePickerStyles = styled.div`
 
 .DateRangePicker {
   position: relative;
-  display: inline-block; }
+  display: inline-block;
+  border-radius: 4px
+}
 
 .DateRangePicker__picker {
   z-index: 1;
@@ -578,8 +581,9 @@ const DatePickerStyles = styled.div`
 
 .DateRangePickerInput {
   background-color: #fff;
-  border: 1px solid #cacccd;
-  display: inline-block; }
+  border: 1px solid #aaa;
+  display: inline-block;
+  border-radius: 4px }
 
 .DateRangePickerInput--disabled {
   background: #cacccd; }
