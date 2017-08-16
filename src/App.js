@@ -5,8 +5,8 @@ import Autosuggest from 'react-autosuggest'
 import _ from 'lodash'
 import { DateRangePicker } from 'react-dates'
 import moment from 'moment'
-import 'react-dates/lib/css/_datepicker.css'
 import Results from './Results'
+import DatePickerStyles from './DatePickerStyles'
 
 // Styles
 const Title = styled.h1`
@@ -279,7 +279,7 @@ class App extends Component {
               <Option value='7'>7 Tage</Option>
             </Select>
           </div>
-          <div className='Date-range-picker'>
+          <DatePickerStyles>
             <DateRangePicker
               startDate={this.state.startDate} // momentPropTypes.momentObj or null,
               endDate={this.state.endDate} // momentPropTypes.momentObj or null,
@@ -287,7 +287,7 @@ class App extends Component {
               focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
               onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
             />
-          </div>
+          </DatePickerStyles>
           <div className='Search-button'>
             <Button primary onClick={() => console.log(neededOutputProps)}>
               Search
