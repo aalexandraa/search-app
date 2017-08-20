@@ -1,10 +1,12 @@
-var express = require('express');
-var api = express();
+var express = require('express')
+var app = express()
 
-api.get('/', function (req, res) {
-  res.send('Hello World!');
-});
+app.get('/trips', function (req, res) {
+  res.json({
+    message: `Ohai there, I will soon return train journeys between ${req.query.origin} & ${req.query.destination} from ${req.query.start} to ${req.query.end} for ${req.query.duration} days. Just you wait.`
+  })
+})
 
-api.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
+app.listen(3001, function () {
+  console.log('Example app listening on port 3000!')
+})
