@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "express": "^4.15.4",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "react": "^15.6.1",
@@ -24,5 +25,19 @@
   "engines": {
     "node": "8.4.0",
     "npm": "5.3.0"
-  }
+  },
+  "description": "Find the best possible train journey within a given time frame for the best price. Frontend for trvlr.",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehd/search-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ehd/search-app/issues"
+  },
+  "homepage": "https://github.com/ehd/search-app#readme"
 }
