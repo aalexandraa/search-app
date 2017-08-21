@@ -53,6 +53,7 @@ class Results extends Component {
     return (
       <div className='results'>
         <Title>Results:</Title>
+        <p>{this.state.message}</p>
         <Table>
           <thead>
             <tr>
