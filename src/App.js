@@ -103,6 +103,7 @@ class App extends Component {
     this.onDestinationSuggestionsClearRequested = this.onDestinationSuggestionsClearRequested.bind(this)
     this.onOriginSuggestionSelected = this.onOriginSuggestionSelected.bind(this)
     this.onDestinationSuggestionSelected = this.onDestinationSuggestionSelected.bind(this)
+    this.onSearchClick = this.onSearchClick.bind(this)
   }
 
   handleChangeDuration (event) {
@@ -156,9 +157,7 @@ class App extends Component {
     })
   }
 
-  render () {
-    const { originValue, originSuggestions } = this.state
-    const { destinationValue, destinationSuggestions } = this.state
+  onSearchClick () {
     const neededOutputProps = {
       duration: this.state.duration,
       departure: this.state.departure,
@@ -166,6 +165,12 @@ class App extends Component {
       startDate: this.state.startDate,
       endDate: this.state.endDate
     }
+    console.log(neededOutputProps)
+  }
+
+  render () {
+    const { originValue, originSuggestions } = this.state
+    const { destinationValue, destinationSuggestions } = this.state
 
     // Autosuggest will pass through all these props to the input.
     const originInputProps = {
@@ -229,7 +234,10 @@ class App extends Component {
             />
           </DatePickerStyles>
           <div className='Search-button'>
-            <Button primary onClick={() => console.log(neededOutputProps)}>
+            <Button
+              primary
+              onClick={this.onSearchClick}
+            >
               Search
             </Button>
           </div>
