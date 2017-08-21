@@ -45,6 +45,7 @@ class Results extends Component {
     this.setState(json)
   }
   render () {
+    console.log(this.state)
     if (this.state === null) {
       return (
         <p>Loading</p>
@@ -67,22 +68,31 @@ class Results extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <Td>Von: Berlin<br />Nach: Hamburg</Td>
-              <Td>Ab: 8:05 Uhr<br />Bis: 10:15 Uhr</Td>
-              <Td>Gleis: 2<br /> Gleis: 19</Td>
-              <Td>2h10</Td>
-              <Td>0</Td>
-              <Td>29,90EUR</Td>
-            </tr>
-            <tr>
-              <Td>Von: Berlin<br />Nach: Hamburg</Td>
-              <Td>Ab: 9:30 Uhr<br />Bis: 12:55 Uhr</Td>
-              <Td>Gleis: 1<br /> Gleis: 4</Td>
-              <Td>3h25</Td>
-              <Td>1</Td>
-              <Td>25,90 EUR</Td>
-            </tr>
+            { this.state.trips.map((trip, key) =>
+              <tr key={key}>
+                <Td>
+                  Von: {trip.origin} <br />
+                  Nach: {trip.destination}
+                </Td>
+                <Td>
+                  Ab: {trip.departureTime} Uhr<br />
+                  Bis: {trip.arrivalTime} Uhr
+                </Td>
+                <Td>
+                  Gleis: {trip.departurePlatform}<br />
+                  Gleis: {trip.arrivalPlatform}
+                </Td>
+                <Td>
+                  {trip.duration}
+                </Td>
+                <Td>
+                  {trip.legs}
+                </Td>
+                <Td>
+                  {trip.price}
+                </Td>
+              </tr>
+            )}
           </tbody>
         </Table>
       </div>
