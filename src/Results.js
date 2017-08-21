@@ -63,7 +63,12 @@ class Results extends Component {
     this.setState(json)
   }
   render () {
-    console.log(this.state)
+    if (this.state === null) {
+      return (
+        <p>Loading</p>
+      )
+    }
+
     return (
       <div className='results'>
         <Title>Results:</Title>
