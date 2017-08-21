@@ -4,9 +4,9 @@ var app = express()
 
 app.use(cors())
 
-app.get('/trips', function (req, res) {
-  res.json({
-    message: `Ohai there, I will soon return train journeys between ${req.query.origin} & ${req.query.destination} from ${req.query.start} to ${req.query.end} for ${req.query.duration} days. Just you wait.`
+app.get('/trips', function (request, response) {
+  response.json({
+    message: `Ohai there, I will soon return train journeys between ${request.query.origin} & ${request.query.destination} from ${request.query.start} to ${request.query.end} for ${request.query.duration} days. Just you wait.`
   })
 })
 
