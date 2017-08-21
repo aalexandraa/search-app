@@ -32,14 +32,13 @@ class Results extends Component {
   }
 
   async fetchTrips () {
-    // const params = qs.stringify({
-    //   origin: this.props.origin,
-    //   destination: this.props.destination,
-    //   start: this.props.start,
-    //   end: this.props.end,
-    //   duration: this.props.duration
-    // })
-    const response = await fetch(`http://localhost:3001/trips?origin=Hamburg&destination=Berlin&duration=4&start=2017-10-01&end=2017-10-31`)
+    const origin = '8000261'
+    const destination = '8011160'
+    const duration = '5'
+    const start = '2017-10-02'
+    const end = '2017-10-09'
+
+    const response = await fetch(`http://localhost:3001/trips?origin=${origin}&destination=${destination}&duration=${duration}&start=${start}&end=${end}`)
     const json = await response.json()
     this.setState(json)
   }
