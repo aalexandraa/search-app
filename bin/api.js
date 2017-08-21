@@ -151,6 +151,12 @@ async function findRoundtrips ({
   return roundtrips
 }
 
+function formatDuration (milliseconds) {
+  const minutes = ((milliseconds / 1000) % 3600) / 60
+  const hours = ((milliseconds / 1000 - minutes * 60) / 3600)
+  return `${hours}h ${minutes}m`
+}
+
 app.use(cors())
 
 app.get('/trips', async function (request, response) {
@@ -172,7 +178,18 @@ app.get('/trips', async function (request, response) {
   }
 
   response.json({
-    trips: roundtrips
+    trips: _.map(roundtrips, roundtrip => ({
+      ...roundtrip,
+      origin: roundtrip.bestOutward.result.origin.name,
+      destination: roundtrip.bestOutward.result.destination.name,
+      departureTime: dateFns.format(_.first(roundtrip.bestOutward.result.legs).start, 'HH:mm'),
+      arrivalTime: dateFns.format(_.first(roundtrip.bestOutward.result.legs).end, 'HH:mm'),
+      departurePlatform: _.first(roundtrip.bestOutward.result.legs).departurePlatform,
+      arrivalPlatform: _.last(roundtrip.bestOutward.result.legs).arrivalPlatform,
+      duration: formatDuration(roundtrip.bestOutward.duration),
+      legs: _.size(roundtrip.bestOutward.result.legs),
+      price: `${roundtrip.total} EUR`
+    }))
   })
 })
 
