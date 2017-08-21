@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "cors": "^2.8.4",
+    "date-fns": "^1.28.5",
+    "db-prices": "^2.0.0",
     "express": "^4.15.4",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
@@ -29,7 +31,10 @@
   },
   "description": "Find the best possible train journey within a given time frame for the best price. Frontend for trvlr.",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "standard": "^10.0.3"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ehd/search-app.git"
