@@ -34,11 +34,11 @@ class Results extends Component {
   }
 
   async fetchTrips () {
-    const origin = '8000261'
-    const destination = '8011160'
-    const duration = '5'
-    const start = '2017-10-02'
-    const end = '2017-10-09'
+    const origin = this.props.origin
+    const destination = this.props.destination
+    const duration = this.props.duration
+    const start = this.props.start.format('YYYY-MM-DD')
+    const end = this.props.end.format('YYYY-MM-DD')
 
     const response = await fetch(`http://localhost:3001/trips?origin=${origin}&destination=${destination}&duration=${duration}&start=${start}&end=${end}`)
     const json = await response.json()

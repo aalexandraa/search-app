@@ -186,6 +186,7 @@ class App extends Component {
       value: destinationValue,
       onChange: this.onDestinationChange
     }
+
     return (
       <div className='App'>
         <div className='App-header'>
@@ -246,7 +247,13 @@ class App extends Component {
           </div>
         </div>
         { this.state.showResults &&
-          <Results />
+          <Results
+            origin={this.state.departure}
+            destination={this.state.destination}
+            duration={this.state.duration}
+            start={this.state.startDate}
+            end={this.state.endDate}
+          />
         }
       </div>
     )
