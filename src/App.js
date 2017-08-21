@@ -158,14 +158,17 @@ class App extends Component {
   }
 
   onSearchClick () {
-    const neededOutputProps = {
-      duration: this.state.duration,
-      departure: this.state.departure,
-      destination: this.state.destination,
-      startDate: this.state.startDate,
-      endDate: this.state.endDate
-    }
-    console.log(neededOutputProps)
+    // const neededOutputProps = {
+    //   duration: this.state.duration,
+    //   departure: this.state.departure,
+    //   destination: this.state.destination,
+    //   startDate: this.state.startDate,
+    //   endDate: this.state.endDate
+    // }
+
+    this.setState({
+      showResults: true
+    })
   }
 
   render () {
@@ -242,7 +245,9 @@ class App extends Component {
             </Button>
           </div>
         </div>
-        <Results />
+        { this.state.showResults &&
+          <Results />
+        }
       </div>
     )
   }
