@@ -7,14 +7,15 @@ app.use(cors())
 app.get('/trips', function (request, response) {
   response.json({
     trips: [{
-      origin: 'Berlin',
-      destination: 'Hamburg',
-      departureTime: '8:05',
-      arrivalTime: '10:15',
-      departurePlatform: '2',
-      arrivalPlatform: '19',
-      legs: '1',
-      price: '29,90EUR'
+      origin: 'Hamburg',
+      destination: 'München',
+      departureTime: '9:05',
+      arrivalTime: '11:15',
+      departurePlatform: '4',
+      arrivalPlatform: '20',
+      duration: '3h10',
+      legs: '4',
+      price: '39,90EUR'
     },
     {
       origin: 'Berlin',
@@ -23,6 +24,7 @@ app.get('/trips', function (request, response) {
       arrivalTime: '12:55',
       departurePlatform: '1',
       arrivalPlatform: '4',
+      duration: '3h17',
       legs: '2',
       price: '25,90EUR'
     }]
