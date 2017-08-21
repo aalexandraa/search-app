@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+// import qs from 'qs'
 
 const Title = styled.h1`
     font-size: 1.5em;
@@ -25,8 +26,44 @@ border: 1px solid #aaa;
 border-radius: 4px;
 `
 
+// class Yolo {
+//   componentDidMount () {
+//     this.fetchTrips()
+//   }
+//
+//   async fetchTrips () {
+//     const params = qs.stringify({
+//       origin: this.props.origin,
+//       destination: this.props.destination,
+//       start: this.props.start,
+//       end: this.props.end,
+//       duration: this.props.duration
+//     })
+//     const response = await fetch(`http://localhost:3001/trips?${params}`)
+//     const json = await response.json()
+//     this.setState(json)
+//   }
+// }
+
 class Results extends Component {
+  componentDidMount () {
+    this.fetchTrips()
+  }
+
+  async fetchTrips () {
+    // const params = qs.stringify({
+    //   origin: this.props.origin,
+    //   destination: this.props.destination,
+    //   start: this.props.start,
+    //   end: this.props.end,
+    //   duration: this.props.duration
+    // })
+    const response = await fetch(`http://localhost:3001/trips?origin=Hamburg&destination=Berlin&duration=4&start=2017-10-01&end=2017-10-31`)
+    const json = await response.json()
+    this.setState(json)
+  }
   render () {
+    console.log(this.state)
     return (
       <div className='results'>
         <Title>Results:</Title>
