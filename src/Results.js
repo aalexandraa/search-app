@@ -1,6 +1,7 @@
 /* globals fetch */
 
 import React, { Component } from 'react'
+import RoundTrip from './RoundTrip'
 import styled from 'styled-components'
 // import qs from 'qs'
 
@@ -16,11 +17,6 @@ const Th = styled.th`
   text-align: left;
   padding: 5px;
   color: palevioletred;
-`
-
-const Td = styled.td`
-  padding: 5px;
-  min-width: 100px;
 `
 
 const Table = styled.table`
@@ -55,43 +51,24 @@ class Results extends Component {
     return (
       <div className='results'>
         <Title>Results:</Title>
-        <p>{this.state.message}</p>
+        <p>Here are the best results for your trip from Hamburg to Berlin:</p>
         <Table>
           <thead>
             <tr>
-              <Th>Bahnhöfe</Th>
-              <Th>Abfahrts-/Ankunftszeit</Th>
-              <Th>Gleis</Th>
+              {/* <Th>Bahnhöfe</Th> */}
+              <Th>Uhrzeit</Th>
+              {/* <Th>Gleis</Th> */}
               <Th>Fahrtzeit</Th>
-              <Th>Umsteigen</Th>
+              {/* <Th>Umsteigen</Th> */}
               <Th>Preis</Th>
             </tr>
           </thead>
           <tbody>
             { this.state.trips.map((trip, key) =>
-              <tr key={key}>
-                <Td>
-                  Von: {trip.origin} <br />
-                  Nach: {trip.destination}
-                </Td>
-                <Td>
-                  Ab: {trip.departureTime} Uhr<br />
-                  Bis: {trip.arrivalTime} Uhr
-                </Td>
-                <Td>
-                  Gleis: {trip.departurePlatform}<br />
-                  Gleis: {trip.arrivalPlatform}
-                </Td>
-                <Td>
-                  {trip.duration}
-                </Td>
-                <Td>
-                  {trip.legs}
-                </Td>
-                <Td>
-                  {trip.price}
-                </Td>
-              </tr>
+              <RoundTrip
+                key={key}
+                trip={trip}
+              />
             )}
           </tbody>
         </Table>
