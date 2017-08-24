@@ -56,11 +56,11 @@ class Results extends Component {
           <thead>
             <tr>
               {/* <Th>Bahnhöfe</Th> */}
-              <Th>Uhrzeit</Th>
+              <Th>🚆➡️</Th>
               {/* <Th>Gleis</Th> */}
-              <Th>Fahrtzeit</Th>
+              <Th>⬅️🚆</Th>
               {/* <Th>Umsteigen</Th> */}
-              <Th>Preis</Th>
+              <Th>💶</Th>
             </tr>
           </thead>
           <tbody>

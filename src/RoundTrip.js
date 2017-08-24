@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
 
-const Td = styled.td`
+const TdFahrten = styled.td`
   padding: 5px;
-  min-width: 100px;
+  min-width: 120px;
+`
+const TdPreis = styled.td`
+padding: 5px;
+min-width: 80px;
 `
 
 function formatDuration (milliseconds) {
@@ -17,39 +21,33 @@ class RoundTrip extends Component {
   render () {
     const trip = this.props.trip
 
-    console.log(trip)
-
     return (
       <tr>
         {/* <Td>
           Von: {trip.origin} <br />
           Nach: {trip.destination}
         </Td> */}
-        <Td>
-          Hinfahrt:<br />
+        <TdFahrten>
           Ab: {moment(trip.bestOutward.start).format('HH:mm')} Uhr<br />
-          Bis: {moment(trip.bestOutward.end).format('HH:mm')} Uhr<br /><br />
-          Rückfahrt:<br />
-          Ab: {moment(trip.bestReturn.start).format('HH:mm')} Uhr<br />
-          Bis: {moment(trip.bestReturn.end).format('HH:mm')} Uhr
-        </Td>
+          Bis: {moment(trip.bestOutward.end).format('HH:mm')} Uhr<br />
+          Fahrtzeit:
+          {formatDuration(trip.bestOutward.duration)}
+        </TdFahrten>
         {/* <Td>
           Gleis: {trip.departurePlatform}<br />
           Gleis: {trip.arrivalPlatform}
         </Td> */}
-        <Td>
-          Hinfahrt:<br />
-          {formatDuration(trip.bestOutward.duration)}<br /><br />
-          Rückfahrt:<br />
-          {formatDuration(trip.bestReturn.duration)}
-        </Td>
+        <TdFahrten>
+          Ab: {moment(trip.bestReturn.start).format('HH:mm')} Uhr<br />
+          Bis: {moment(trip.bestReturn.end).format('HH:mm')} Uhr<br />
+          Fahrtzeit: {formatDuration(trip.bestReturn.duration)}
+        </TdFahrten>
         {/* <Td>
           {trip.legs}
         </Td> */}
-        <Td>
-          Preis gesamt:<br />
+        <TdPreis>
           {trip.price}
-        </Td>
+        </TdPreis>
       </tr>
     )
   }
