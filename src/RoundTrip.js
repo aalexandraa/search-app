@@ -10,6 +10,10 @@ const TdPreis = styled.td`
 padding: 5px;
 min-width: 80px;
 `
+const Td = styled.td`
+padding: 5px;
+min-width: 80px;
+`
 
 function formatDuration (milliseconds) {
   const minutes = ((milliseconds / 1000) % 3600) / 60
@@ -48,6 +52,7 @@ class RoundTrip extends Component {
         <TdPreis>
           {trip.price}
         </TdPreis>
+        <Td>Zur Buchung</Td>
       </tr>
     )
   }

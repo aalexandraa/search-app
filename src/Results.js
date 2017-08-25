@@ -61,6 +61,7 @@ class Results extends Component {
               <Th>⬅️🚆</Th>
               {/* <Th>Umsteigen</Th> */}
               <Th>💶</Th>
+              <Th>""</Th>
             </tr>
           </thead>
           <tbody>
