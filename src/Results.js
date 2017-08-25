@@ -51,7 +51,7 @@ class Results extends Component {
     return (
       <div className='results'>
         <Title>Results:</Title>
-        <p>Here are the best results for your trip from Hamburg to Berlin:</p>
+        <p>Here are the best results for your trip from {this.state.trips['0'].origin} to {this.state.trips['0'].destination}:</p>
         <Table>
           <thead>
             <tr>
