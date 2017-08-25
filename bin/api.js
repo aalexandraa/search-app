@@ -4,6 +4,7 @@ var app = express()
 const _ = require('lodash')
 const dateFns = require('date-fns')
 const prices = require('db-prices')
+const Big = require('big.js')
 
 const options = {
   class: 1,
@@ -46,7 +47,7 @@ async function findCheapTrains (from, to, date) {
         start,
         end,
         duration,
-        price: result.price.amount
+        price: new Big(result.price.amount)
       }
     })
   }
@@ -55,13 +56,13 @@ async function findCheapTrains (from, to, date) {
 function rankTrains (trains) {
   const minPrice = _.minBy(trains, 'price').price
   const maxPrice = _.maxBy(trains, 'price').price
-  const priceSpan = maxPrice - minPrice
+  const priceSpan = maxPrice.minus(minPrice)
   const minStart = dateFns.getHours(_.minBy(trains, 'start').start)
   const maxStart = dateFns.getHours(_.maxBy(trains, 'start').start)
   const startSpan = maxStart - minStart
 
   return _.map(trains, train => _.extend({
-    priceRank: (train.price - minPrice) / priceSpan,
+    priceRank: (train.price.minus(minPrice)) / priceSpan,
     startRank: (dateFns.getHours(train.start) - minStart) / startSpan
   }, train))
 }
@@ -136,7 +137,7 @@ async function findRoundtrips ({
 
       const bestOutward = _.first(outwardRanked)
       const bestReturn = _.first(returnRanked)
-      const total = bestOutward.price + bestReturn.price
+      const total = bestOutward.price.plus(bestReturn.price).toFixed(2)
 
       return {
         bestOutward,
@@ -188,7 +189,7 @@ app.get('/trips', async function (request, response) {
       arrivalPlatform: _.last(roundtrip.bestOutward.result.legs).arrivalPlatform,
       duration: formatDuration(roundtrip.bestOutward.duration),
       legs: _.size(roundtrip.bestOutward.result.legs),
-      price: `${roundtrip.total} EUR`
+      price: roundtrip
     }))
   })
 })
