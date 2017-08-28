@@ -189,7 +189,7 @@ app.get('/trips', async function (request, response) {
       arrivalPlatform: _.last(roundtrip.bestOutward.result.legs).arrivalPlatform,
       duration: formatDuration(roundtrip.bestOutward.duration),
       legs: _.size(roundtrip.bestOutward.result.legs),
-      price: roundtrip
+      price: roundtrip.total
     }))
   })
 })
