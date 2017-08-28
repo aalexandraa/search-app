@@ -32,6 +32,7 @@ class RoundTrip extends Component {
           Nach: {trip.destination}
         </Td> */}
         <TdFahrten>
+          Vom: {moment(trip.bestOutward.start).format('DD.MM.YYYY')}<br /><br />
           Ab: {moment(trip.bestOutward.start).format('HH:mm')} Uhr<br />
           Bis: {moment(trip.bestOutward.end).format('HH:mm')} Uhr<br />
           Fahrtzeit:
@@ -42,6 +43,7 @@ class RoundTrip extends Component {
           Gleis: {trip.arrivalPlatform}
         </Td> */}
         <TdFahrten>
+          Bis: {moment(trip.bestReturn.start).format('DD.MM.YYYY')}<br /><br />
           Ab: {moment(trip.bestReturn.start).format('HH:mm')} Uhr<br />
           Bis: {moment(trip.bestReturn.end).format('HH:mm')} Uhr<br />
           Fahrtzeit: {formatDuration(trip.bestReturn.duration)}
