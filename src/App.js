@@ -82,16 +82,16 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      originValue: '',
-      originSuggestions: [],
-      destinationValue: '',
-      destinationSuggestions: [],
-      departure: '',
-      destination: '',
-      duration: '4',
+      originValue: 'Berlin Hauptbahnhof',
+      originSuggestions: ['Berlin Hauptbahnhof'],
+      destinationValue: 'Hamburg Hbf',
+      destinationSuggestions: ['Hamburg Hbf'],
+      departure: '8011160',
+      destination: '8002549',
+      duration: '3',
       id: '',
       startDate: moment(),
-      endDate: moment().add(2, 'weeks')
+      endDate: moment().add(1, 'weeks')
     }
 
     this.handleChangeDuration = this.handleChangeDuration.bind(this)
