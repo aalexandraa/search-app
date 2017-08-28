@@ -1,10 +1,11 @@
-var express = require('express')
-var cors = require('cors')
-var app = express()
+const express = require('express')
+const cors = require('cors')
 const _ = require('lodash')
 const dateFns = require('date-fns')
 const prices = require('db-prices')
 const Big = require('big.js')
+
+const app = express()
 
 const options = {
   class: 1,
