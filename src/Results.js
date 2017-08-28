@@ -19,6 +19,10 @@ const Th = styled.th`
   color: palevioletred;
 `
 
+const Thead = styled.thead`
+box-shadow: 0px 0px 1px 0px black;
+`
+
 const Table = styled.table`
 border: 1px solid #aaa;
 border-radius: 4px;
@@ -51,9 +55,9 @@ class Results extends Component {
     return (
       <div className='results'>
         <Title>Results:</Title>
-        <p>Here are the best results for your trip from {this.state.trips['0'].origin} to {this.state.trips['0'].destination}:</p>
+        <p>Here are the best results for your trip from {this.state.trips[0].origin} to {this.state.trips[0].destination}:</p>
         <Table>
-          <thead>
+          <Thead>
             <tr>
               {/* <Th>Bahnhöfe</Th> */}
               <Th>🚆➡️</Th>
@@ -61,9 +65,9 @@ class Results extends Component {
               <Th>⬅️🚆</Th>
               {/* <Th>Umsteigen</Th> */}
               <Th>💶</Th>
-              <Th>""</Th>
+              <Th></Th>
             </tr>
-          </thead>
+          </Thead>
           <tbody>
             { this.state.trips.map((trip, key) =>
               <RoundTrip
