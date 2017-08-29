@@ -86,7 +86,7 @@ class App extends Component {
       originSuggestions: ['Berlin Hauptbahnhof'],
       destinationValue: 'Hamburg Hbf',
       destinationSuggestions: ['Hamburg Hbf'],
-      departure: '8011160',
+      origin: '8011160',
       destination: '8002549',
       duration: '3',
       id: '',
@@ -147,7 +147,7 @@ class App extends Component {
 
   onOriginSuggestionSelected (event, { suggestion }) {
     this.setState({
-      departure: suggestion.id
+      origin: suggestion.id
     })
   }
 
@@ -160,7 +160,7 @@ class App extends Component {
   onSearchClick () {
     // const neededOutputProps = {
     //   duration: this.state.duration,
-    //   departure: this.state.departure,
+    //   origin: this.state.origin,
     //   destination: this.state.destination,
     //   startDate: this.state.startDate,
     //   endDate: this.state.endDate
@@ -248,7 +248,7 @@ class App extends Component {
         </div>
         { this.state.showResults &&
           <Results
-            origin={this.state.departure}
+            origin={this.state.origin}
             destination={this.state.destination}
             duration={this.state.duration}
             start={this.state.startDate}
