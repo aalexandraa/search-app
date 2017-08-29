@@ -38,13 +38,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ehd/search-app.git"
+    "url": "git+https://github.com/aalexandraa/search-app.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ehd/search-app/issues"
+    "url": "https://github.com/aalexandraa/search-app/issues"
   },
-  "homepage": "https://github.com/ehd/search-app#readme"
+  "homepage": "https://trvlr-search-app.herokuapp.com"
 }
