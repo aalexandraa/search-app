@@ -14,7 +14,7 @@ const options = {
   // duration: 1440,
   preferFastRoutes: true,
   travellers: [{
-    bc: 0,
+    bc: 1, // Bahncard 25, 1. Klasse
     typ: 'E'
   }/*, {
     bc: 0,
