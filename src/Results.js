@@ -3,7 +3,11 @@
 import React, { Component } from 'react'
 import RoundTrip from './RoundTrip'
 import styled from 'styled-components'
-// import qs from 'qs'
+
+const isDev = window.location.hostname === 'localhost'
+const apiBaseURL = isDev
+  ? 'http://localhost:3001'
+  : ''
 
 const Title = styled.h1`
     font-size: 1.5em;
@@ -40,7 +44,7 @@ class Results extends Component {
     const start = this.props.start.format('YYYY-MM-DD')
     const end = this.props.end.format('YYYY-MM-DD')
 
-    const response = await fetch(`http://localhost:3001/trips?origin=${origin}&destination=${destination}&duration=${duration}&start=${start}&end=${end}`)
+    const response = await fetch(`${apiBaseURL}/trips?origin=${origin}&destination=${destination}&duration=${duration}&start=${start}&end=${end}`)
     const json = await response.json()
     this.setState(json)
   }
