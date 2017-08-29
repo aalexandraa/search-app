@@ -18,10 +18,12 @@
     "react-desktop": "^0.3.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.10",
+    "serve-static": "^1.12.4",
     "styled-components": "^2.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-production": "node bin/api",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
@@ -38,13 +40,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ehd/search-app.git"
+    "url": "git+https://github.com/aalexandraa/search-app.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ehd/search-app/issues"
+    "url": "https://github.com/aalexandraa/search-app/issues"
   },
-  "homepage": "https://github.com/ehd/search-app#readme"
+  "homepage": "https://trvlr-search-app.herokuapp.com"
 }

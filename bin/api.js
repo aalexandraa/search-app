@@ -4,8 +4,11 @@ const _ = require('lodash')
 const dateFns = require('date-fns')
 const prices = require('db-prices')
 const Big = require('big.js')
+const serveStatic = require('serve-static')
 
 const app = express()
+
+app.use(serveStatic('build'))
 
 const options = {
   class: 1,
@@ -195,6 +198,8 @@ app.get('/trips', async function (request, response) {
   })
 })
 
-app.listen(3001, function () {
-  console.log('Example app listening on port 3001!')
+const port = process.env.PORT || 3001
+
+app.listen(port, function () {
+  console.log(`App listening on port ${port}`)
 })

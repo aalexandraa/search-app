@@ -1,0 +1,13 @@
+{
+  "name": "trvlr-search-app",
+  "description": "Frontend for trvlr",
+  "website": "https://trvlr-search-app.herokuapp.com",
+  "repository": "https://github.com/aalexandraa/search-app",
+  "success_url": "/",
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    }
+  ],
+  "stack": "heroku-16"
+}
