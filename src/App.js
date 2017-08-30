@@ -214,6 +214,7 @@ class App extends Component {
               onSuggestionSelected={this.onDestinationSuggestionSelected}
             />
           </StationSearchStyles>
+
           <div className='Duration-picker'>
             <Select
               onChange={this.handleChangeDuration}
@@ -235,6 +236,7 @@ class App extends Component {
               onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
               focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
               onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+              displayFormat='DD MMM'
             />
           </DatePickerStyles>
           <div className='Search-button'>
