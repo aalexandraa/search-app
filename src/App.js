@@ -158,14 +158,6 @@ class App extends Component {
   }
 
   onSearchClick () {
-    // const neededOutputProps = {
-    //   duration: this.state.duration,
-    //   origin: this.state.origin,
-    //   destination: this.state.destination,
-    //   startDate: this.state.startDate,
-    //   endDate: this.state.endDate
-    // }
-
     this.setState({
       showResults: true
     })

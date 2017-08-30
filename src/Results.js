@@ -1,5 +1,4 @@
-/* globals fetch */
-
+import _ from 'lodash'
 import React, { Component } from 'react'
 import RoundTrip from './RoundTrip'
 import styled from 'styled-components'
@@ -44,12 +43,12 @@ class Results extends Component {
     const start = this.props.start.format('YYYY-MM-DD')
     const end = this.props.end.format('YYYY-MM-DD')
 
-    const response = await fetch(`${apiBaseURL}/trips?origin=${origin}&destination=${destination}&duration=${duration}&start=${start}&end=${end}`)
+    const response = await window.fetch(`${apiBaseURL}/trips?origin=${origin}&destination=${destination}&duration=${duration}&start=${start}&end=${end}`)
     const json = await response.json()
     this.setState(json)
   }
+
   render () {
-    console.log(this.state)
     if (this.state === null) {
       return (
         <p>Loading</p>
@@ -69,7 +68,7 @@ class Results extends Component {
               <Th>⬅️🚆</Th>
               {/* <Th>Umsteigen</Th> */}
               <Th>💶</Th>
-              <Th></Th>
+              <Th />
             </tr>
           </Thead>
           <tbody>
