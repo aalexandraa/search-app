@@ -5395,6 +5395,10 @@ react-themeable@^1.1.0:
   dependencies:
     object-assign "^3.0.0"
 
+react-validation@^2.10.9:
+  version "2.10.9"
+  resolved "https://registry.yarnpkg.com/react-validation/-/react-validation-2.10.9.tgz#f56e32cabcf22d53d82af34a7bed80f2b22ba7c4"
+
 react@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
