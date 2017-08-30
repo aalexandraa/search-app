@@ -66,7 +66,7 @@ function rankTrains (trains) {
   const startSpan = maxStart - minStart
 
   return _.map(trains, train => _.extend({
-    priceRank: (train.price.minus(minPrice)) / priceSpan,
+    priceRank: (train.price.minus(minPrice)).div(priceSpan),
     startRank: (dateFns.getHours(train.start) - minStart) / startSpan
   }, train))
 }
