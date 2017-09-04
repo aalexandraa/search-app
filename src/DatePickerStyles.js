@@ -581,6 +581,7 @@ const DatePickerStyles = styled.div`
 
 .DateRangePickerInput {
   background-color: #fff;
+  margin-top: 1em;
   border: 1px solid #aaa;
   display: inline-block;
   border-radius: 4px }

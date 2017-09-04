@@ -42,9 +42,7 @@ const Button = styled.button`
 /* Adapt the colours based on primary prop */
   background: ${props => props.primary ? 'palevioletred' : 'white'};
   color: ${props => props.primary ? 'white' : 'palevioletred'};
-
   font-size: 1em;
-  margin: 1em 0;
   padding: 0.25em 1em;
   border: 2px solid palevioletred;
   border-radius: 3px;
@@ -233,16 +231,6 @@ class App extends Component {
               <Option value='7'>7 Tage</Option>
             </Select>
           </div>
-          <DatePickerStyles>
-            <DateRangePicker
-              startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-              endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-              focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-              onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
-              displayFormat='DD MMM'
-            />
-          </DatePickerStyles>
           <div className='Search-button'>
             <Button
               primary

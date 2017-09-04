@@ -51,7 +51,7 @@ class Results extends Component {
   render () {
     if (this.state === null) {
       return (
-        <p>Loading</p>
+        <p>Loading...</p>
       )
     }
 
