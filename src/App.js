@@ -207,6 +207,18 @@ class App extends Component {
             />
           </StationSearchStyles>
 
+          <DatePickerStyles>
+            <DateRangePicker
+              startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+              endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+              onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+              focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+              onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+              displayFormat='DD MMM'
+              numberOfMonths={1} autoFocus
+              firstDayOfWeek={1}
+            />
+          </DatePickerStyles>
           <div className='Duration-picker'>
             <Select
               onChange={this.handleChangeDuration}
